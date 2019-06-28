@@ -1,0 +1,16 @@
+<!--
+/**
+ * Copyright © 2019-2020 Developer, Ltd. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ *  Set Theme name, parent theme & logo for new child theme
+ *  So I've used Luma as parent theme 
+ */
+-->
+<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
+    <title>Luma Child | Magento 2</title>
+    <parent>Magento/luma</parent>
+    <media>
+        <preview_image>media/preview.jpg</preview_image>
+    </media>
+</theme>

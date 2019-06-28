@@ -1,0 +1,56 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <!--Code to update default logo fo child theme -->
+    <referenceBlock name="logo">
+       <arguments>
+          <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+          <argument name="logo_img_width" xsi:type="number">200</argument>
+          <argument name="logo_img_height" xsi:type="number">200</argument>
+       </arguments>
+    </referenceBlock>
+        
+    <!--Custom link block footer -->
+    <referenceBlock name="footer_links">
+      <block class="Magento\Framework\View\Element\Template" name="custompop" after="-" template="Magento_Theme::popcustom.phtml">
+            <arguments>
+                <argument name="target_id" xsi:type="string">contentarea</argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+
+    <!--custom page data 2column-->
+    <referenceContainer name="customcontainer">
+      <block class="Magento\Framework\View\Element\Template" name="pagecustom_new"  template="Magento_Theme::custompage.phtml">
+          <arguments>
+              <argument name="target_id" xsi:type="string">contentarea</argument>
+          </arguments>
+      </block>
+    </referenceContainer>
+
+    <!-- add custom page link to footer derault block-->
+    <referenceBlock name="footer_links">
+        <block class="Magento\Framework\View\Element\Html\Link\Current" name="footer-additional-link">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="false">Custom Page</argument>
+                <argument name="path" xsi:type="string">custom-page</argument>
+                <argument name="attributes" xsi:type="array">
+                    <item name="class" xsi:type="string">footer--link</item>
+                </argument>
+            </arguments>
+        </block>
+
+        <block class="Magento\Framework\View\Element\Html\Link\Current" name="footer-additional-link-popup">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="false">Click Me For Popup</argument>
+                <argument name="path" xsi:type="string">#</argument>
+                <argument name="attributes" xsi:type="array">
+                    <item name="class" xsi:type="string">footer--link</item>
+                    <item name="id" xsi:type="string">click-me</item>
+                </argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+
+
+    </body>
+</page>

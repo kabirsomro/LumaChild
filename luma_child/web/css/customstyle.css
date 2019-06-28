@@ -1,0 +1,24 @@
+/* Two column page layout styling */
+.two_column_box .leftside_col{width:50%;float:left}
+.two_column_box .rightside_col{width:50%;float:left}
+.two_column_box .accordion{background-color:#eee;color:#444;cursor:pointer;padding:18px;width:100%;border:none;text-align:left;outline:none;font-size:15px;margin-bottom:5px;margin-top:5px;transition:.4s}
+.two_column_box .active,.two_column_box .accordion:hover{background-color:#ccc}
+.two_column_box .accordion:after{content:'\002B';color:#777;font-weight:700;float:right;margin-left:5px}
+.two_column_box .active:after{content:"\2212"}
+.two_column_box .panel{padding:0 18px;background-color:#fff;max-height:0;overflow:hidden;transition:max-height .2s ease-out}
+.main_box_left,.main_box_right{padding:5px 10px}
+
+/* Responsive style for accordion to disable */
+@media only screen and (min-width: 768px) {
+    .two_column_box .panel{overflow:visible;max-height:initial}
+    .two_column_box .accordion:after{display:none}
+    .two_column_box .accordion{pointer-events:none}
+}
+
+/* Responsive style for Two column layout */
+@media only screen and (max-width: 767px) {
+  .two_column_box .leftside_col,.two_column_box .rightside_col{width:100%;float:none}
+}
+
+/* Message display styling for checkout page based on country selection */
+.alert_sucess{background-color:#5cb864;color:#fff;padding:7px 10px;border-radius:2px;margin-top:5px}

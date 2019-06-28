@@ -1,0 +1,71 @@
+<?php
+/**
+ *  Copyright © 2019-2020 Developer, Ltd. All rights reserved.
+ *
+ *
+ *  html template to get pop-up custom block
+ *  
+ */
+
+/**
+ * @var $block \Magento\Framework\View\Element\Html\Link
+ */
+?>
+
+
+<li id="click-me"> 
+    <?php
+    // Link can be display from dymanic block
+
+    // echo $this->getLayout()
+    //         ->createBlock('Magento\Cms\Block\Block')
+    //         ->setBlockId('footer_link_custom_block')
+    //         ->toHtml();
+    ?>
+                
+</li>
+
+
+<div id="popup-mpdal" style="display: none;">
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <?php 
+    // Display dynamic content "popup_inner_block" 
+    
+    // echo $this->getLayout()
+    // ->createBlock('Magento\Cms\Block\Block')
+    // ->setBlockId('popup_inner_block')
+    // ->toHtml();
+    ?>
+</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+        ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                buttons: [{
+                    text: $.mage.__('Continue'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-mpdal'));
+            $("#click-me").on('click',function(){
+                $("#popup-mpdal").modal("openModal");
+            });
+
+        }
+    );
+</script>
